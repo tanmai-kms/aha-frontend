@@ -1,4 +1,4 @@
-# aha-frontend-exam
+# aha-frontend
 
 ## Project setup
 ```
