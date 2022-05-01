@@ -55,8 +55,6 @@ import Vue from "vue";
 export default Vue.extend({
   name: "ResultsPage",
 
-  props: ["keyword", "pageSize"],
-
   computed: {
     apiService(): ApiService {
       return container.resolve(ApiService);
@@ -66,6 +64,8 @@ export default Vue.extend({
   data: () => ({
     loading: false,
     currentPage: 1,
+    pageSize: 3,
+    keyword: "",
     totalPages: 0,
     users: [] as User[],
     ended: false,
@@ -81,6 +81,7 @@ export default Vue.extend({
   },
 
   async created() {
+    console.log("this.$route.query", this.$route.query);
     this.loadPage(this.currentPage);
   },
 
@@ -88,7 +89,12 @@ export default Vue.extend({
     backToHome() {
       this.$router.push("/");
     },
+    getParams() {
+      this.pageSize = +this.$route.query?.pageSize;
+      this.keyword = String(this.$route.query?.keyword);
+    },
     async loadPage(currentPage: number) {
+      this.getParams();
       this.loading = true;
       try {
         const result = await this.apiService.getResults(

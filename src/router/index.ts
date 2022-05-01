@@ -19,9 +19,8 @@ const routes: Array<RouteConfig> = [
     meta: { hideLogoNavOnMobile: true, hideRightBar: true },
   },
   {
-    path: "/results/keyword/:keyword/pageSize/:pageSize",
+    path: "/results",
     name: "results",
-    props: true,
     component: AhaResults,
     meta: { hideLogoNavOnMobile: true },
   },

@@ -50,7 +50,7 @@ export default Vue.extend({
     search() {
       this.$router.push({
         name: "results",
-        params: { keyword: this.keyword, pageSize: this.pageSize.toString() },
+        query: { pageSize: this.pageSize.toString(), keyword: this.keyword },
       });
     },
   },
