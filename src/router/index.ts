@@ -1,6 +1,8 @@
+import AhaHome from "@/components/AhaHome.vue";
+import AhaResults from "@/components/AhaResults.vue";
+import AhaTags from "@/components/AhaTags.vue";
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
 
@@ -8,16 +10,20 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: AhaHome,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/tags",
+    name: "tags",
+    component: AhaTags,
+    meta: { hideLogoNavOnMobile: true, hideRightBar: true },
+  },
+  {
+    path: "/results/keyword/:keyword/pageSize/:pageSize",
+    name: "results",
+    props: true,
+    component: AhaResults,
+    meta: { hideLogoNavOnMobile: true },
   },
 ];
 

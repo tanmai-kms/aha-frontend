@@ -1,0 +1,22 @@
+// Desktop first
+.desktop-view {
+  display: flex !important;
+}
+
+.mobile-view {
+  display: none !important;
+}
+
+@media screen and (max-width: $mobileWidth) {
+  .desktop-view {
+    display: none !important;
+  }
+
+  .mobile-view {
+    display: flex !important;
+  }
+
+  .hide-on-mobile-view {
+    display: none !important;
+  }
+}

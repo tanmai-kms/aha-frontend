@@ -1,0 +1,62 @@
+@import "./constants.scss";
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.text-input {
+  width: 100%;
+  height: 60px;
+  border-radius: 6px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  padding: 17px 15px 16px 15px;
+  color: $white;
+  outline: none;
+
+  &::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.55px;
+    color: $white;
+    opacity: 0.3;
+  }
+
+  &:focus {
+    border: 3px solid #ff9b33;
+  }
+}
+
+.skeleton-loading {
+  animation: shimmer 3s infinite linear;
+  background: #5b5c60;
+  background: linear-gradient(135deg, #5b5c60 5%, rgb(111, 111, 113) 26%, #5b5c60 38%);
+  border-radius: 4px;
+  background-size: 1000px 100%;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+}

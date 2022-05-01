@@ -1,0 +1,52 @@
+@import "./common.scss";
+@import "./constants.scss";
+
+.button {
+  @extend .flex-center;
+  cursor: pointer;
+  padding: 13px 16px;
+  border-radius: 4px;
+  background: $white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: $bgDefault;
+
+  &:hover {
+    border: 1px solid $white;
+    background: $bgDefault;
+    color: $white;
+  }
+}
+
+@mixin secondary-button($bgColor, $color) {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+  height: 29px;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: capitalize;
+  border: 1px solid $white;
+  background: $bgColor;
+  color: $color;
+
+  &:hover {
+    background: $color;
+    color: $bgColor;
+  }
+}
+
+.contained-button {
+  @include secondary-button($white, $bgDefault);
+}
+
+.outlined-button {
+  @include secondary-button($bgDefault, $white);
+}
